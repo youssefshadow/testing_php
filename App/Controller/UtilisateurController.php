@@ -39,5 +39,49 @@
             //Import de la vue
             include './App/Vue/vueAddUser.php';
         }
+
+        public function connectUser()
+{
+    $msg = "";
+
+    // Si le formulaire est soumis
+    if (isset($_POST['connexion'])) {
+        $mail = Fonctions::cleanInput($_POST['mail']);
+        $password = Fonctions::cleanInput($_POST['mdp']);
+
+        // Création d'une instance de la classe Utilisateur
+        $user = new Utilisateur();
+
+        // Récupération de l'utilisateur correspondant à l'adresse e-mail
+        $user->setMail($mail);
+        $result = $user->getUserByMail();
+
+        if (!empty($result)) {
+            $db_password = $result[0]->mdp;
+            if (password_verify($password, $db_password)) {
+                // Enregistrement des données utilisateur dans la session
+                $_SESSION['connected'] = true;
+                $_SESSION['id'] = $result[0]->id;
+                $_SESSION['mail'] = $result[0]->mail;
+                
+                $msg = "Mot de passe incorrect.";
+
+                header('Location: ./home');
+                exit;
+            } else {
+                $msg = "Mot de passe incorrect.";
+            }
+        } else {
+            $msg = "Adresse e-mail incorrecte.";
+        }
+    }
+
+    // Import de la vue
+    include './App/Vue/vueConnectUser.php';
+}
+
+        
+        
     }
 ?>
+
