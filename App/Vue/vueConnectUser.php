@@ -35,13 +35,16 @@
         }
 
         .form-group input {
-            width: 100%;
-            margin: auto;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            text-align: center; 
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center; 
 }
+
 
 
         .form-group button {
@@ -80,7 +83,7 @@
                 <button type="submit" name="connexion">Se connecter</button>
             </div>
             <?php if(!empty($msg)): ?>
-                <div class="error-message"><?= $msg ?></div>
+                <div id="msgzone"><?=$msg?></div>
             <?php endif; ?>
         </form>
     </div>

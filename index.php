@@ -28,6 +28,9 @@
         case '/testing/addUser':
             $utilCtrl->insertUser();
             break;
+        case '/testing/connectUser':
+            $utilCtrl->connectUser();
+            break;
         case '/testing/test':
             include './test.php';
             break;

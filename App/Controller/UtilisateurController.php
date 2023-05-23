@@ -64,15 +64,15 @@
                 $_SESSION['id'] = $result[0]->id;
                 $_SESSION['mail'] = $result[0]->mail;
                 
-                $msg = "Mot de passe incorrect.";
+                $msg = "connecté.";
 
-                header('Location: ./home');
+                // header('Location: ./home');
                 exit;
             } else {
-                $msg = "Mot de passe incorrect.";
+                $msg =  "Les informations sont incorrectes";
             }
         } else {
-            $msg = "Adresse e-mail incorrecte.";
+            $msg =  "Les informations sont incorrectes";
         }
     }
 
