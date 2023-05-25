@@ -82,9 +82,7 @@
             <div class="form-group">
                 <button type="submit" name="connexion">Se connecter</button>
             </div>
-            <?php if(!empty($msg)): ?>
-                <div id="msgzone"><?=$msg?></div>
-            <?php endif; ?>
+            <div id="msgzone"><?=$msg?></div>
         </form>
     </div>
 </body>

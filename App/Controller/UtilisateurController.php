@@ -66,7 +66,7 @@
                 
                 $msg = "connecté.";
 
-                // header('Location: ./home');
+                header('Location: ./home');
                 exit;
             } else {
                 $msg =  "Les informations sont incorrectes";
